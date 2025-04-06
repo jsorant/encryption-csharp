@@ -4,10 +4,12 @@ namespace DomainTest;
 
 public class CaesarCipherTests
 {
-    [Test]
-    public void ShouldEncryptWithShift0()
+    [TestCase("A", 0, "A")]
+    [TestCase("A", 1, "B")]
+    [TestCase("A", 2, "C")]
+    public void ShouldEncrypt(String plainText, int shift, String expected)
     {
-        var cipher = new CaesarCipher(0);
-        Assert.That(cipher.Encrypt("a"), Is.EqualTo("a"));
+        var cipher = new CaesarCipher(shift);
+        Assert.That(cipher.Encrypt(plainText), Is.EqualTo(expected));
     }
 }
