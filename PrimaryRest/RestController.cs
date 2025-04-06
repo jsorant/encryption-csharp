@@ -6,11 +6,17 @@ namespace PrimaryRest;
 
 public class RestController : Controller
 {
-    public async Task<IActionResult> Encrypt(EncryptModel encryptModel)
+    public Task<IActionResult> Encrypt(EncryptModel encryptModel)
     {
         var cipher = new CaesarCipher(encryptModel.Shift);
         var encryptedText = cipher.Encrypt(encryptModel.PlainText);
-        return View(new EncryptedModel(encryptedText));
+        var encryptedModel = ToResponse(encryptedText);
+        return Task.FromResult<IActionResult>(View(encryptedModel));
+    }
+
+    private static EncryptedModel ToResponse(string encryptedText)
+    {
+        return new EncryptedModel(encryptedText);
     }
 }
 
