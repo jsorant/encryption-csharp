@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain.csproj", "{C9B97A64-1776-4DA9-B8FE-E68607BFC75A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{C9B97A64-1776-4DA9-B8FE-E68607BFC75A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainTest", "..\DomainTest\DomainTest.csproj", "{532A53CF-2CDA-4151-8E05-03D108502262}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainTest", "DomainTest\DomainTest.csproj", "{532A53CF-2CDA-4151-8E05-03D108502262}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimaryRest", "..\PrimaryRest\PrimaryRest.csproj", "{3995D2AC-7F59-493F-A91B-FD3C42CC8B85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimaryRest", "PrimaryRest\PrimaryRest.csproj", "{3995D2AC-7F59-493F-A91B-FD3C42CC8B85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimaryRestTest", "..\PrimaryRestTest\PrimaryRestTest.csproj", "{3B33F075-349F-41E0-922F-CA9F7B53C810}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimaryRestTest", "PrimaryRestTest\PrimaryRestTest.csproj", "{3B33F075-349F-41E0-922F-CA9F7B53C810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
