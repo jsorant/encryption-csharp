@@ -12,6 +12,15 @@ public class CaesarCipher
 
     public String Encrypt(string plainText)
     {
-        return _alphabet[_shift].ToString();
+        int sourceIndex = _alphabet.IndexOf(plainText[0]);
+        int destinationIndex = ComputeDestinationIndexInAlphabetRange(sourceIndex);
+        return _alphabet[destinationIndex].ToString();
+    }
+
+    private int ComputeDestinationIndexInAlphabetRange(int sourceIndex)
+    {
+        int destinationIndexInAlphabetRange = (sourceIndex + _shift) % _alphabet.Length;
+        if(destinationIndexInAlphabetRange < 0) destinationIndexInAlphabetRange += _alphabet.Length;
+        return destinationIndexInAlphabetRange;
     }
 }
