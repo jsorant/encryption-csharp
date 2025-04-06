@@ -1,26 +1,29 @@
-﻿namespace Domain;
+﻿using System.Text;
 
-public class CaesarCipher
+namespace Domain;
+
+public class CaesarCipher(int shift)
 {
-    private readonly int _shift;
-    private readonly string _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private const string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public CaesarCipher(int shift)
+    public string Encrypt(string plainText)
     {
-        _shift = shift;
+        return plainText.Select(EncryptCharacter)
+            .Aggregate(new StringBuilder(), (sb, encryptedChar) => sb.Append(encryptedChar))
+            .ToString();
     }
 
-    public String Encrypt(string plainText)
+    private string EncryptCharacter(char plainChar)
     {
-        int sourceIndex = _alphabet.IndexOf(plainText[0]);
-        int destinationIndex = ComputeDestinationIndexInAlphabetRange(sourceIndex);
-        return _alphabet[destinationIndex].ToString();
+        var sourceIndex = Alphabet.IndexOf(plainChar);
+        var destinationIndex = ComputeDestinationIndexInAlphabetRange(sourceIndex);
+        return Alphabet[destinationIndex].ToString();
     }
 
     private int ComputeDestinationIndexInAlphabetRange(int sourceIndex)
     {
-        int destinationIndexInAlphabetRange = (sourceIndex + _shift) % _alphabet.Length;
-        if(destinationIndexInAlphabetRange < 0) destinationIndexInAlphabetRange += _alphabet.Length;
+        var destinationIndexInAlphabetRange = (sourceIndex + shift) % Alphabet.Length;
+        if(destinationIndexInAlphabetRange < 0) destinationIndexInAlphabetRange += Alphabet.Length;
         return destinationIndexInAlphabetRange;
     }
 }
